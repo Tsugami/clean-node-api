@@ -1,6 +1,10 @@
 const HtppResponse = require('../helpers/http-response')
 
 class LoginRouter {
+  constructor (authUserCase) {
+    this.authUserCase = authUserCase
+  }
+
   route (httpRequest) {
     if (!httpRequest || !httpRequest.body) {
       return HtppResponse.serverError()
@@ -13,6 +17,8 @@ class LoginRouter {
     if (!password) {
       return HtppResponse.badRequest('password')
     }
+
+    this.authUserCase.auth(email, password)
   }
 }
 
