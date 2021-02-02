@@ -1,6 +1,7 @@
 {
   "*.js": [
     "standard --fix",
+    "yarn test:staged",
     "git add"
   ]
 }

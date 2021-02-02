@@ -6,7 +6,8 @@
   "author": "Yslan Ramos <yslan3000@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "jest"
+    "test": "jest --watchAll",
+    "test:staged": "jest"
   },
   "standard": {
     "env": {
