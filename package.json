@@ -5,24 +5,13 @@
   "repository": "git@github.com:Tsugami/clean-node-api.git",
   "author": "Yslan Ramos <yslan3000@gmail.com>",
   "license": "MIT",
-  "lint-staged": {
-    "*.js": [
-      "standard --fix",
-      "git add"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+  "scripts": {
+    "test": "jest"
   },
   "devDependencies": {
     "husky": "^4.3.8",
     "jest": "^26.6.3",
     "lint-staged": "^10.5.3",
     "standard": "^16.0.3"
-  },
-  "scripts": {
-    "test": "jest"
   }
 }
