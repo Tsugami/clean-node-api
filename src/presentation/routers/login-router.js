@@ -20,9 +20,7 @@ class LoginRouter {
 
     this.authUserCase.auth(email, password)
 
-    return {
-      statusCode: 401
-    }
+    return HtppResponse.unauthorizedError()
   }
 }
 

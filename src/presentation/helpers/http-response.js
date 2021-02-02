@@ -1,4 +1,5 @@
 const MissingParamError = require('./missing-param-error')
+const UnauthorizedError = require('./unauthorized-errror')
 
 class HtppResponse {
   static badRequest (paramName) {
@@ -7,6 +8,10 @@ class HtppResponse {
 
   static serverError () {
     return { statusCode: 500 }
+  }
+
+  static unauthorizedError () {
+    return { statusCode: 401, body: new UnauthorizedError() }
   }
 }
 
