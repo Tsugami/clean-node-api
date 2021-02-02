@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "test": "jest --watchAll",
-    "test:staged": "jest --bail --coverage --findRelatedTests"
+    "test:staged": "jest"
   },
   "standard": {
     "env": {
