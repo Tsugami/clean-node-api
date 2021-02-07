@@ -1,5 +1,4 @@
-const UnauthorizedError = require('./unauthorized-errror')
-const ServerError = require('./server-error')
+const { UnauthorizedError, ServerError } = require('../errors')
 class HtppResponse {
   static badRequest (error) {
     return { statusCode: 400, body: error }
