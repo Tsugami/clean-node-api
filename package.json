@@ -6,9 +6,11 @@
   "author": "Yslan Ramos <yslan3000@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "jest --watchAll --silent --colors --noStackTrace",
-    "test:staged": "jest --passWithNoTests --findRelatedTests --silent --noStackTrace",
-    "test:ci": "jest --coverage --silent --noStackTrace"
+    "test": "jest --silent --colors --noStackTrace --passWithNoTests",
+    "test:unit": "yarn test -- --watch -c jest-unit-config.js",
+    "test:integration": "yarn test -- --watch -c jest-integration-config.js",
+    "test:staged": "yarn test --findRelatedTests",
+    "test:ci": "yarn test --coverage"
   },
   "standard": {
     "env": {
