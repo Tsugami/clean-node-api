@@ -10,7 +10,9 @@ class AuthUseCase {
     if (!password) throw new MissingParamError('password')
     if (!this.loadUserByEmailRepository) throw new MissingParamError('loadUserByEmailRepository')
     if (!this.loadUserByEmailRepository.load) throw new InvalidParamError('loadUserByEmailRepository')
-    this.loadUserByEmailRepository.load(email)
+
+    const user = await this.loadUserByEmailRepository.load(email)
+    if (!user) return null
   }
 }
 
@@ -56,5 +58,12 @@ describe('Auth UseCase', () => {
     const sut = new AuthUseCase({})
     const promise = sut.auth('any_email@mail.com', 'any_password')
     expect(promise).rejects.toThrow(new InvalidParamError('loadUserByEmailRepository'))
+  })
+
+  test('Should return null if LoadUserByEmailRepository returns null', async () => {
+    const { sut } = makeSut()
+    const accessToken = await sut.auth('invalid_email@mail.com', 'any_password')
+    console.log(accessToken)
+    expect(accessToken).toBeNull()
   })
 })
