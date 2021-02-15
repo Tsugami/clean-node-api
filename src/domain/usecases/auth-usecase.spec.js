@@ -61,9 +61,8 @@ const makeTokenGenerator = () => {
 
 const makeTokenGeneratorWithError = () => {
   class TokenGeneratorSpy {
-    async generate (userId) {
-      this.userId = userId
-      return this.accessToken
+    async generate () {
+      throw new Error()
     }
   }
 
