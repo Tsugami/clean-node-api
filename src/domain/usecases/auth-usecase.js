@@ -1,10 +1,10 @@
 const { MissingParamError } = require('../../utils/errors')
 
 class AuthUseCase {
-  constructor (loadUserByEmailRepository, encrypter, tokenGeneratorSpy) {
+  constructor (loadUserByEmailRepository, encrypter, tokenGenerator) {
     this.loadUserByEmailRepository = loadUserByEmailRepository
     this.encrypter = encrypter
-    this.tokenGeneratorSpy = tokenGeneratorSpy
+    this.tokenGenerator = tokenGenerator
   }
 
   async auth (email, password) {
@@ -16,7 +16,7 @@ class AuthUseCase {
 
     if (!isValid) return null
 
-    const accessToken = this.tokenGeneratorSpy.generate(user.id)
+    const accessToken = this.tokenGenerator.generate(user.id)
     return accessToken
   }
 }
